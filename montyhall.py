@@ -10,6 +10,27 @@ doors = {
     "DOOR 2":"",
     "DOOR 3":""
 }
+art = """
+ _______   _______   _______
+|       | |       | |       |
+|   1   | |   2   | |   3   |
+|_______| |_______| |_______|
+
+"""
+def again():
+  global outcomes, doors
+  playagain = input("Do you want to play again? (Y/N)")
+  if playagain[0].lower() == 'y':
+    outcomes = ["WRONG", "WRONG", "CORRECT!"]
+    doors = {
+    "DOOR 1":"",
+    "DOOR 2":"",
+    "DOOR 3":""
+    }
+    assignment()
+    game()
+  else:
+    quit()
 
 def assignment():
     door1 = random.choice(outcomes)
@@ -24,70 +45,76 @@ def assignment():
 
 assignment()
 
-selections = input("""
+
+
+def game():
+  print(art)
+  selections = input("""
 You are presented with
 three doors. One contains a path to freedom,
 the others will lead you to a certain death. 
 Which door shall you open?
 >>> DOOR """)
+  if selections == "1":
+      print("You selected door 1.")
+      print("But what was behind door 3?")
+      print("Door 3 was "+doors["DOOR 3"])
+      if doors["DOOR 3"] == "CORRECT!":
+          print("Well, we're certain you wont survive now\nGAME OVER")
+      else:
+          keepchoice = input("Exciting. Do you want to stick to door 1? Y/N\n>>> ")
+          if keepchoice == "Y" or "y":
+              print("Alright then, let's open door 1!\nDoor 1 was "+doors["DOOR 1"])
+              if doors["DOOR 1"] == "CORRECT!":
+                  print("YOU'VE SURVIVED!")
+              else:
+                  print("HAHA. CERTAIN DEATH. GAME OVER!")
+          else:
+              print("Clever, let's open door 2\nDoor 2 was "+doors["DOOR 2"])
+              if doors["DOOR 2"] == "CORRECT!":
+                  print("YOU'VE SURVIVED!")
+              else:
+                  print("HAHA. CERTAIN DEATH. GAME OVER!")
+  elif selections == "2":
+      print("You selected door 2.")
+      print("But what was behind door 1")
+      print("Door 1 was "+doors["DOOR 1"])
+      if doors["DOOR 1"] == "CORRECT!":
+          print("Well, we're certain you wont survive now\nGAME OVER")
+      else:
+          keepchoice = input("Exciting. Do you want to stick to door 2? Y/N\n>>> ")
+          if keepchoice == "Y" or "y":
+              print("Alright then, let's open door 2!\nDoor 2 was "+doors["DOOR 2"])
+              if doors["DOOR 2"] == "CORRECT!":
+                  print("YOU'VE SURVIVED!")
+              else:
+                  print("HAHA. CERTAIN DEATH. GAME OVER!")
+          else:
+              print("Clever, let's open door 3\nDoor 3 was "+doors["DOOR 3"])
+              if doors["DOOR 3"] == "CORRECT!":
+                  print("YOU'VE SURVIVED!")
+              else:
+                  print("HAHA. CERTAIN DEATH. GAME OVER!")
+  elif selections == "3":
+      print("You selected door 3.")
+      print("But what was behind door 1")
+      print(doors["DOOR 1"])
+      if doors["DOOR 1"] == "CORRECT!":
+          print("Well, we're certain you wont survive now\nGAME OVER")
+      else:
+          keepchoice = input("Exciting. Do you want to stick to door 3? Y/N\n>>> ")
+          if keepchoice == "Y" or "y":
+              print("Alright then, let's open door 3!\nDoor 3 was "+doors["DOOR 3"])
+              if doors["DOOR 3"] == "CORRECT!":
+                  print("YOU'VE SURVIVED!")
+              else:
+                  print("HAHA. CERTAIN DEATH. GAME OVER!")
+          else:
+              print("Clever, let's open door 2\nDoor 2 was "+doors["DOOR 2"])
+              if doors["DOOR 2"] == "CORRECT!":
+                  print("YOU'VE SURVIVED!")
+              else:
+                  print("HAHA. CERTAIN DEATH. GAME OVER!")
+  again()
 
-if selections == "1":
-    print("You selected door 1.")
-    print("But what was behind door 3?")
-    print("Door 3 was "+doors["DOOR 3"])
-    if doors["DOOR 3"] == "CORRECT!":
-        print("Well, we're certain you wont survive now\nGAME OVER")
-    else:
-        keepchoice = input("Exciting. Do you want to stick to door 1? Y/N\n>>> ")
-        if keepchoice == "Y" or "y":
-            print("Alright then, let's open door 1!\nDoor 1 was "+doors["DOOR 1"])
-            if doors["DOOR 1"] == "CORRECT!":
-                print("YOU'VE SURVIVED!")
-            else:
-                print("HAHA. CERTAIN DEATH. GAME OVER!")
-        else:
-            print("Clever, let's open door 2\nDoor 2 was "+doors["DOOR 2"])
-            if doors["DOOR 2"] == "CORRECT!":
-                print("YOU'VE SURVIVED!")
-            else:
-                print("HAHA. CERTAIN DEATH. GAME OVER!")
-elif selections == "2":
-    print("You selected door 2.")
-    print("But what was behind door 1")
-    print("Door 1 was "+doors["DOOR 1"])
-    if doors["DOOR 1"] == "CORRECT!":
-        print("Well, we're certain you wont survive now\nGAME OVER")
-    else:
-        keepchoice = input("Exciting. Do you want to stick to door 2? Y/N\n>>> ")
-        if keepchoice == "Y" or "y":
-            print("Alright then, let's open door 2!\nDoor 2 was "+doors["DOOR 2"])
-            if doors["DOOR 2"] == "CORRECT!":
-                print("YOU'VE SURVIVED!")
-            else:
-                print("HAHA. CERTAIN DEATH. GAME OVER!")
-        else:
-            print("Clever, let's open door 3\nDoor 3 was "+doors["DOOR 3"])
-            if doors["DOOR 3"] == "CORRECT!":
-                print("YOU'VE SURVIVED!")
-            else:
-                print("HAHA. CERTAIN DEATH. GAME OVER!")
-elif selections == "3":
-    print("You selected door 3.")
-    print("But what was behind door 1")
-    print(doors["DOOR 1"])
-    if doors["DOOR 1"] == "CORRECT!":
-        print("Well, we're certain you wont survive now\nGAME OVER")
-    else:
-        keepchoice = input("Exciting. Do you want to stick to door 3? Y/N\n>>> ")
-        if keepchoice == "Y" or "y":
-            print("Alright then, let's open door 3!\nDoor 3 was "+doors["DOOR 3"])
-            if doors["DOOR 3"] == "CORRECT!":
-                print("YOU'VE SURVIVED!")
-            else:
-                print("HAHA. CERTAIN DEATH. GAME OVER!")
-        else:
-            print("Clever, let's open door 2\nDoor 2 was "+doors["DOOR 2"])
-            if doors["DOOR 2"] == "CORRECT!":
-                print("YOU'VE SURVIVED!")
-            else:
-                print("HAHA. CERTAIN DEATH. GAME OVER!")
+game()

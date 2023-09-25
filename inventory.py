@@ -3,12 +3,11 @@ import os
 if os.path.isdir("OUTPUT/") == False: ### Verify that the output folder exists
     os.mkdir("OUTPUT/") ### If OUTPUT directory doesn't exist, make it.
 
-inventory = {
-
-}
+inventory = {}
 
 def defineCurrentItem():
-    print("Current files that exist are: \n"+str(os.listdir("OUTPUT/")))
+    filelist = " "+str(os.listdir("OUTPUT/"))
+    print("Current files that exist are: \n"+filelist.replace("'", "").replace(',', '\n').replace('[', '').replace(']', '').replace("_list.txt", ""))
     item = input("""What item are we counting? """)
     global i
     i = open("OUTPUT/"+item+"_list.txt", 'a')
@@ -27,7 +26,7 @@ def additem():
 If done, type EXPORT""")
     SKU = input()
     QTY = 1
-    while SKU != 'EXPORT':
+    while SKU.upper() != 'EXPORT':
         if SKU not in inventory:
             inventory[SKU] = QTY
         elif SKU in inventory:
@@ -46,12 +45,8 @@ def addnotes():
         i.write("------------------\n")
 
 def writetoinventory():
-    global i
-    global inventory
-    inventory = str(inventory)
-    inventory = inventory.replace(', ', '\n')
-    inventory = inventory.replace('{', '')
-    inventory = inventory.replace('}', '')
+    global i, inventory
+    inventory = str(inventory).replace(', ', '\n').replace('{', '').replace('}', '')
     i.write(inventory)
 
 defineCurrentItem()

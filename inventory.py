@@ -39,13 +39,14 @@ def addnotes():
     addnote = input("Would you like to add any notes? (Y/N)\n>>>")
     while addnote.capitalize() == "Y":
         i.write("NOTES\n")
-        note = input("Please type your notes")
+        note = input("Please type your notes\n")
         i.write(note+"\n")
         addnote = input("Would you like to add any other notes?\n")
-        i.write("------------------\n")
+        i.write("-"*20+"\n")
 
 def writetoinventory():
     global i, inventory
+    lines = fp.readlines()
     inventory = str(inventory).replace(', ', '\n').replace('{', '').replace('}', '')
     i.write(inventory)
 

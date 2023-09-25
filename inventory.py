@@ -46,7 +46,6 @@ def addnotes():
 
 def writetoinventory():
     global i, inventory
-    lines = fp.readlines()
     inventory = str(inventory).replace(', ', '\n').replace('{', '').replace('}', '')
     i.write(inventory)
 

@@ -1,5 +1,10 @@
-import json
-#ok lets figure out how job files work
+import json, os
+
+isExist = os.path.exists("current_orders")
+if isExist == False:
+    os.mkdir("current_orders")
+
+
 paymentstatus = ""
 def ispaid():
   global paymentstatus
@@ -14,19 +19,23 @@ def ispaid():
       else:
         print("Incorrect input. Try again.")
         ispaid()
-    except: 
+    except:
       print("Something went wrong, \n please try again.")
       ispaid()
-  return paymentstatus 
-  
-custname= input("Customer Name:\n")
+  return paymentstatus
+
+custname = input("Customer Name\n")
+custphone = input("Phone Number\n")
 shoemodel = input("Shoe Model:\n")
 shoewidth = input("Shoe width:\n")
 shoesize = float(input("Size:\n"))
 ispaid()
-didtheypay = print("Paid: "+paymentstatus)
+didtheypay = "Paid: "+paymentstatus
 
-custorder = shoemodel, shoewidth, shoesize, didtheypay
+custorder = (custphone, shoemodel, shoewidth, shoesize, didtheypay)
 
-filename = {custname:custorder}
-print(json.dumps(filename))
+
+filename = json.dumps({custname: custorder}, indent=2)
+
+with open("current_orders/"+custname+"_"+shoemodel+".json", "w") as outfile:
+  outfile.write(filename)

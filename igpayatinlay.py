@@ -6,6 +6,8 @@
 #add "way" to the end
 #dont change words like "or", "the", "on", etc
 
+
+exemptwords = ['or', 'the', 'in', 'on', 'at', 'is', 'and', 'a', 'i']
 vowel = "aeiouAEIOU"
 
 #print(vowel)
@@ -19,7 +21,9 @@ englishwords1 = englishwords.split(" ")
 
 translation = ""
 for i in englishwords1:
-    if i[0] in vowel:
+    if i in exemptwords:
+        translation += i+' '
+    elif i[0] in vowel:
         translation += i+"way "
     else:
         i += i[0].lower()

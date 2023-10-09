@@ -4,12 +4,13 @@ Directly inspired by a [learning log that I saw by a user that goes by amitness]
 
 ### Python Programming
 
-|Resource|Concept / Chapter|Example|Example|Example|
-|---|---|---|---|---|
-|Book example|Chapter Example|[Test](http://www.google.com)|Test|Test|
-
 ### Javascript
 
 ### NODE.JS
 
 ### HTML AND CSS
+
+### EXAMPLE IGNORE THIS
+|Resource|Concept / Chapter|Example|Example|Example|
+|---|---|---|---|---|
+|Book example|Chapter Example|[Test](http://www.google.com)|Test|Test|

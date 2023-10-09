@@ -6,7 +6,7 @@ Directly inspired by a [learning log that I saw by a user that goes by amitness]
 
 |Resource|Concept / Chapter|Example|Example|Example|
 |---|---|---|---|---|
-|Book example|Chapter Example|[Test](www.google.com)|Test|Test|
+|Book example|Chapter Example|[Test](http://www.google.com)|Test|Test|
 
 ### Javascript
 
